@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Small inline loader and global error handler to surface module/load/runtime errors into the page -->
+    <script>
+      (function(){
+        const root = document.getElementById('root')
+        if (root) root.innerText = 'Loading app...'
+
+        function showError(msg){
+          try{
+            if (root) root.innerText = msg
+          }catch(e){ console.error(e) }
+        }
+
+        window.addEventListener('error', function(e){
+          console.error('Window error', e.error || e.message || e)
+          showError('Error: ' + (e.error && e.error.message ? e.error.message : e.message || String(e)))
+        })
+
+        window.addEventListener('unhandledrejection', function(e){
+          console.error('Unhandled rejection', e.reason)
+          showError('Promise rejection: ' + (e.reason && e.reason.message ? e.reason.message : String(e.reason)))
+        })
+      })()
+    </script>
+    <!-- Load React/ReactDOM UMD builds as globals to avoid 'React is not defined' errors during development
+         (This is a development fallback; in production the bundler should provide React imports.) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script>
+      // Expose globals so code that references `React` without import still works in the browser.
+      window.React = window.React || window['React'];
+      window.ReactDOM = window.ReactDOM || window['ReactDOM'];
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

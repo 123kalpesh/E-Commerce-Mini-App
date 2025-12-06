@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial }
+
+.container { max-width: 1100px; margin: 0 auto }
+
+/* Fallback styles (useful if Tailwind is not available during dev). */
+.page-title {
+	font-size: 1.6rem;
+	margin: 0 0 12px 0;
+	color: #111827;
+}
+.muted { color: #6b7280 }
+.alert { padding: 12px; border-radius: 6px; margin: 10px 0 }
+.alert.error { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca }
+
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px }
+.product-card { background: #fff; border-radius: 8px; padding: 12px; box-shadow: 0 6px 14px rgba(16,24,40,0.06); border: 1px solid #e6e9ef }
+.product-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 6px }
+.product-card .title { font-weight: 600; margin: 8px 0 }
+.product-card .price { color: #059669; font-weight: 700 }
+
+.btn { display: inline-block; padding: 8px 12px; border-radius: 6px; cursor: pointer; border: none }
+.btn.primary { background: #2563eb; color: #fff }
+.btn.secondary { background: #f3f4f6; color: #111827 }
+.btn.danger { background: #ef4444; color: #fff }
+
+.product-detail { max-width: 740px }
+.product-detail .price { font-size: 1.25rem; color: #059669; margin: 8px 0 }
+
+.cart-page { max-width: 840px }
+.cart-list { margin-top: 12px }
+.cart-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-radius: 8px; background: #fff; border: 1px solid #e6e9ef; margin-bottom: 8px }
+.cart-item-main { display:flex; flex-direction: column }
+.cart-item-name { font-weight: 600 }
+.cart-item-price { color: #6b7280 }
+.cart-item-actions { display:flex; align-items:center; gap:8px }
+.qty { width:64px; padding:8px; border-radius:6px; border:1px solid #d1d5db }
+.cart-summary { margin-top: 16px; padding: 12px; border-radius: 8px; background:#f8fafc }
+
+/* Simple navbar fallback */
+.navbar { display:flex; justify-content:space-between; align-items:center; padding:12px 0 }
+.nav-brand { font-weight:700; font-size:1.1rem }
+.nav-links { display:flex; gap:12px; align-items:center }
+
+/* small helpers */
+.text-center { text-align:center }
+
